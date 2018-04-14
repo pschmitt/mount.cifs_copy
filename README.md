@@ -21,7 +21,7 @@ Environment=BOX_USERNAME=uXXXXXX
 Environment=BOX_PASSWORD=XXXXXXX
 Environment=BOX_MOUNTPOINT=/mnt/storagebox
 ExecStartPre=/usr/bin/docker run -v /opt/bin:/target pschmitt/mount.cifs_copy
-ExecStart=/home/core/mount.cifs -o user=${BOX_USERNAME},pass=${BOX_PASSWORD},x-systemd.device-timeout=30,_netdev //${BOX_USERNAME}.your-storagebox.de/backup ${BOX_MOUNTPOINT}
+ExecStart=/opt/bin/mount.cifs -o user=${BOX_USERNAME},pass=${BOX_PASSWORD},x-systemd.device-timeout=30,_netdev //${BOX_USERNAME}.your-storagebox.de/backup ${BOX_MOUNTPOINT}
 ExecStop=/usr/bin/umount ${BOX_MOUNTPOINT}
 
 [Install]
